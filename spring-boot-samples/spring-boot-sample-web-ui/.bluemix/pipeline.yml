@@ -1,0 +1,42 @@
+---
+stages:
+- name: MyStage
+  inputs:
+  - url: https://github.com/mjbrewer/spring-boot.git
+    type: git
+    branch: 1.0.x
+    dir_name: null
+  triggers:
+  - type: commit
+  jobs:
+  - name: Build
+    type: builder
+    working_dir: spring-boot-samples/spring-boot-sample-web-ui
+    artifact_dir: target
+    build_type: maven
+    script: |-
+      #!/bin/bash
+      mvn package
+- name: MyStage
+  inputs:
+  - type: job
+    stage: MyStage
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  jobs:
+  - name: Deploy
+    type: deployer
+    target:
+      region_id: ibm:yp:us-south
+      organization: mjbrewer@us.ibm.com
+      space: dev
+      application: spring-ui-mjbrewer
+    script: "#!/bin/bash\nls \ncf push spring-ui-mjbrewer -p \"spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar\"\
+      \n"
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: https://devops-api.ng.bluemix.net/v1/messaging/webhook/publish
