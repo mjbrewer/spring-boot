@@ -14,7 +14,7 @@ stages:
     working_dir: spring-boot-samples/spring-boot-sample-web-ui
     artifact_dir: target
     build_type: maven
-    script:
+    script: |
       #!/bin/bash
       mvn package
 - name: MyStage
@@ -33,7 +33,7 @@ stages:
       organization: mjbrewer@us.ibm.com
       space: dev
       application: spring-ui-mjbrewer
-    script:
+    script: |
       #!/bin/bash
       ls
       cf push spring-ui-mjbrewer -p spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
