@@ -33,8 +33,10 @@ stages:
       organization: mjbrewer@us.ibm.com
       space: dev
       application: spring-ui-mjbrewer
-    script: "#!/bin/bash\nls \ncf push spring-ui-mjbrewer -p \"spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar\"\
-      \n"
+    script: |-
+      #!/bin/bash
+      ls
+      cf push spring-ui-mjbrewer -p spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
 hooks:
 - enabled: true
   label: null
