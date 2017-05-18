@@ -1,2 +1,2 @@
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/mjbrewer/spring-boot/spring-boot-samples/spring-boot-sample-web-ui#[required])
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/mjbrewer/spring-boot#[required])
