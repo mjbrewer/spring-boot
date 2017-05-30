@@ -3,7 +3,8 @@ applications:
 - name: spring-boot-web-ui-mjbrewer
   instances: 1
   host: spring-boot-sample-web-ui-mjbrewer
-  path: target/spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
+  path: spring-boot/spring-boot-samples/spring-boot-sample-web-ui
+#  path: target/spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
   command: mvn package
   memory: 512M
   instances: 1
