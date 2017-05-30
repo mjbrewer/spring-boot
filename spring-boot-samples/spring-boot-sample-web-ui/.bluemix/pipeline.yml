@@ -2,7 +2,7 @@
 stages:
 - name: MyStage
   inputs:
-  - url: https://github.com/mjbrewer/spring-boot.git
+  - url: https://github.com/krook/spring-boot.git
     type: git
     branch: 1.0.x
     dir_name: null
@@ -30,13 +30,13 @@ stages:
     type: deployer
     target:
       region_id: ibm:yp:us-south
-      organization: mjbrewer@us.ibm.com
+      organization: krook@us.ibm.com
       space: dev
-      application: spring-ui-mjbrewer
+      application: spring-ui-krook
     script: |
       #!/bin/bash
       ls
-      cf push spring-ui-mjbrewer -p spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
+      cf push spring-ui-krook -p spring-boot-sample-web-ui-1.0.3.BUILD-SNAPSHOT.jar
 hooks:
 - enabled: true
   label: null
